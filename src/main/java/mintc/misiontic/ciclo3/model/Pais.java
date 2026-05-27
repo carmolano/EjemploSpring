@@ -2,7 +2,6 @@ package mintc.misiontic.ciclo3.model;
 
 import jakarta.persistence.*;
 
-import javax.annotation.processing.Generated;
 
 @Entity
 @Table(name = "paises")
@@ -10,7 +9,7 @@ public class Pais {
 
 @Id
 @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private long   id;
+    private Long   id;
     private String nombre;
     private String presidente;
     private String continente;
@@ -19,15 +18,15 @@ public class Pais {
 private  String  nombreHimno;
     @Column(name = "num_habitantes")
 private  Long  numHabitantes;
-    @Column(name = "num_Departamento")
+    @Column(name = "num_departamentos")
 private  Integer numDepartamentos;
     @Column(name = "num_Municipio")
 private  Integer numMunicipios;
-    @Column(name = "num_Principal")
+    @Column(name = "idioma_Principal")
 private  String  idiomaPrincipal;
     @Column(name = "num_Universidad")
 private  Integer numUniversidades;
-    @Column(name = "num_Democracia")
+    @Column(name = "tipo_Democracia")
 private  String  tipoDemocracia;
 
 
@@ -49,7 +48,7 @@ public void setContinente (String continente) {this.continente = continente;}
 public String getNombreHimno() {return nombreHimno;}
     public void setNombreHimno(String nombreHimno) {this.nombreHimno = nombreHimno;}
 
-public long getNumHabitantes() {return numHabitantes;}
+public Long getNumHabitantes() {return numHabitantes;}
 public void setNumHabitantes(Long numHabitantes){this.numHabitantes = numHabitantes;}
 
 public Integer getNumDepartamentos(){ return numDepartamentos;}
