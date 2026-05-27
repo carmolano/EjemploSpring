@@ -21,14 +21,14 @@ public class PaisController {
 
     @GetMapping
     public String listarPais(Model model) {
-        model.addAttribute("listaPaises", paisService.listarTodos());
-        return "paises/lista";
+        model.addAttribute("listaPises", paisService.listarTodos());
+        return "pais/lita";
     }
 
     @GetMapping("nuevo")
     public String mostrarFormularioNuevo(Model model) {
         model.addAttribute("pais", new Pais());
-        return "paises/Formulario";
+        return "paises/formulario";
     }
 
     @PostMapping("/guardar")
@@ -42,7 +42,7 @@ public class PaisController {
         Pais pais = paisService.obtenerPorId(id);
         if (pais != null) {
             model.addAttribute("pais",pais);
-            return "paises/Formulario";
+            return "paises/formulario";
         }
         return "redirect:/paises";
     }
