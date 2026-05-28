@@ -14,11 +14,11 @@
     </div>
 
     <div class="card shadow">
-        <div class="card-body text-center" th:if="${#lists.isEmpty(ListaPaises)}">
+        <div class="card-body text-center" th:if="${#lists.isEmpty(listaPaises)}">
             <p class="text-muted mb-0">NO HAY PAISES REGISTRADOS TODAVIA EN EL MOMENTO</p>
         </div>
 
-        <div class="table-responsive" th:if="${not #lists.isEmpty(ListaPaises)}">
+        <div class="table-responsive" th:if="${not #lists.isEmpty(listaPaises)}">
             <table class="table table-striped table-hover align-middle mb-0">
                 <thead class="table-dark">
                 <tr>
@@ -33,14 +33,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="p : ${ListaPaises}">
+                <tr th:each="p : ${listaPaises}">
                     <td th:text="${p.id}">1</td>
                     <td class="fw-bold" th:text="${p.nombre}">Colombia</td>
                     <td th:text="${p.presidente}">Presidente</td>
                     <td th:text="${p.continente}">América</td>
-                    <td th:text="${p.num_principal}">Español</td>
-                    <td th:text="${p.num_habitantes}">0</td>
-                    <td th:text="${p.num_democracia}">Presidencial</td>
+                    <td th:text="${p.idiomaPrincipal}">Español</td>
+                    <td th:text="${p.numHabitantes}">0</td>
+                    <td th:text="${p.tipoDemocracia}">Presidencial</td>
                     <td>
                         <a th:href="@{/paises/editar/{id}(id=${p.id})}" class="btn btn-warning btn-sm">Editar</a>
                         <a th:href="@{/paises/eliminar/{id}(id=${p.id})}"

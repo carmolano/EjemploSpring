@@ -1,6 +1,8 @@
 package mintc.misiontic.ciclo3.controller;
 
-
+import mintc.misiontic.ciclo3.repository.PaisRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 
@@ -11,9 +13,32 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/paises")
 public class PaisController {
+
+    private static final Logger logger = LoggerFactory.getLogger(PaisController.class);
+
+
+    @Autowired
+    private PaisRepository paisRepository;
+
+    public List<Pais> listarPaises() {
+        List<Pais> lista = paisRepository.findAll();
+        logger.info("PaisService.listarTodos ->{}", lista.size());
+        return lista;
+    }
+
+
+    public void guardar(Pais pais) {
+        logger.info("PaisService.guardar -> guardando:{}", pais);
+        paisRepository.save(pais);
+        logger.info("PaisService.guardar -> guardado  con id: {}", pais.getId());
+    }
+
+
 
     @Autowired
     private PaisService paisService;
